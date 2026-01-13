@@ -16,13 +16,14 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-6">
       <h1 className="text-2xl font-semibold text-center">
-  Turn rough ideas into professional text in seconds
+   Turn casual messages into polite writing
 </h1>
 <p className="text-gray-500 text-center max-w-md">
-  Built for students and founders who hate writing but need results.
+  Perfect for students who want their messages to sound more respectful.
+
 </p>
 
-/* --- IGNORE --- */
+
 
       <div className="w-full max-w-md space-y-4">
         <textarea
@@ -41,13 +42,23 @@ export default function Home() {
         </button>
 
         {result && (
-          <pre className="whitespace-pre-wrap border p-3 rounded bg-gray-50">
-            {result}
-          </pre>
-        )}
+  <div className="space-y-2">
+    <pre className="whitespace-pre-wrap border p-3 rounded bg-white text-black dark:bg-zinc-900 dark:text-white">
+
+      {result}
+    </pre>
+
+    <button
+      className="w-full border py-2 rounded"
+      onClick={() => navigator.clipboard.writeText(result)}
+    >
+      Copy Result
+    </button>
+  </div>
+)}
       </div>
 
-/* --- IGNORE --- */
+
 
 <div className="border rounded p-4 text-center space-y-2">
   <h2 className="text-xl font-semibold">
