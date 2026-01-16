@@ -1,35 +1,29 @@
-export function formatText(input: string, mode: string, level: string)
- {
+export function formatText(input: string, mode: string, level: string) {
   if (!input) return "";
-
-  const clean = input.trim().toLowerCase();
 
   let output = "";
 
   if (mode === "apology") {
-    output =
-      "I sincerely apologize for the inconvenience. " +
-      "Thank you very much for your understanding and patience.";
+    output = "Sorry for being late. Thanks for understanding.";
   }
 
   if (mode === "request") {
-    output =
-      "I hope this message finds you well. " +
-      "I would greatly appreciate your assistance regarding this matter.";
+    output = "Hi, could you help me with this when you have a moment?";
   }
 
   if (mode === "email") {
     output =
-      "Dear Sir or Madam,\n\n" +
-      "I am writing to inform you regarding the following matter. " +
-      "I look forward to your kind response.\n\n" +
-      "Best regards,";
+      "Hi,\n\n" +
+      "I wanted to follow up on this.\n\n" +
+      "Thanks,\n";
   }
 
   if (level === "high") {
-  output += " I truly appreciate your kind understanding and patience in this matter.";
-}
+    output = output.replace(
+      "Thanks",
+      "Thank you very much"
+    );
+  }
 
-
-  return `✨ Polite Version:\n\n${output}\n— Created with ProText`;
+  return `✨ Polite Version:\n\n${output}`;
 }

@@ -126,7 +126,9 @@ export default function Home() {
   </button>
 </div>
 
-
+<p className="text-xs text-gray-500 text-center">
+  Early access — currently free for feedback
+</p>
 
 
 
