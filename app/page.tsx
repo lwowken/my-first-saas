@@ -2,22 +2,26 @@
 
 import ItemList from "./ItemList";
 import { useState } from "react";
-import { formatText } from "../lib/formatter";
+import { generateLecturerEmail } from "../lib/formatter";
 
 export default function Home() {
-  const [input, setInput] = useState("");
-  const [result, setResult] = useState("");
-  const [mode, setMode] = useState("request");
-  const [level, setLevel] = useState("normal");
 
- 
+ const [emailType, setEmailType] = useState<"extension" | "absence">("extension");
+const [tone, setTone] = useState<"normal" | "polite">("normal");
+const [course, setCourse] = useState("");
+const [date, setDate] = useState("");
+const [result, setResult] = useState("");
+
 
   function handleGenerate() {
-    const output = formatText(input, mode, level);
-
-
-    setResult(output);
-  }
+  const email = generateLecturerEmail(
+    emailType,
+    tone,
+    course,
+    date
+  );
+  setResult(email);
+}
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-6 pt-24">
@@ -32,62 +36,70 @@ export default function Home() {
 
 
       <div className="w-full max-w-md space-y-4">
-        <textarea
-          className="w-full border p-3 rounded"
-          rows={4}
-          placeholder="Enter your text..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
+       
+<div className="max-w-md w-full space-y-4">
 
-<div className="flex gap-3 justify-center">
+  {/* Type */}
+  <div>
+    <p className="font-medium">Reason</p>
+    <select
+      value={emailType}
+      onChange={(e) => setEmailType(e.target.value as any)}
+      className="w-full border p-2 rounded"
+    >
+      <option value="extension">Request Extension</option>
+      <option value="absence">Inform Absence</option>
+    </select>
+  </div>
+
+  {/* Tone */}
+  <div>
+    <p className="font-medium">Tone</p>
+    <select
+      value={tone}
+      onChange={(e) => setTone(e.target.value as any)}
+      className="w-full border p-2 rounded"
+    >
+      <option value="normal">Normal</option>
+      <option value="polite">Very Polite</option>
+    </select>
+  </div>
+
+  {/* Course */}
+  <div>
+    <p className="font-medium">Course Name</p>
+    <input
+      value={course}
+      onChange={(e) => setCourse(e.target.value)}
+      className="w-full border p-2 rounded"
+      placeholder="e.g. Computer Science 101"
+    />
+  </div>
+
+  {/* Date */}
+  <div>
+    <p className="font-medium">Date</p>
+    <input
+      value={date}
+      onChange={(e) => setDate(e.target.value)}
+      className="w-full border p-2 rounded"
+      placeholder="e.g. 12 March 2026"
+    />
+  </div>
+
   <button
-    onClick={() => setMode("request")}
-    className={`border px-4 py-2 rounded ${mode === "request" ? "bg-white text-black" : ""}`}
+    onClick={handleGenerate}
+    className="w-full bg-black text-white py-2 rounded"
   >
-    Request
+    Generate Email
   </button>
 
-  <button
-    onClick={() => setMode("apology")}
-    className={`border px-4 py-2 rounded ${mode === "apology" ? "bg-white text-black" : ""}`}
-  >
-    Apology
-  </button>
-
-  <button
-    onClick={() => setMode("email")}
-    className={`border px-4 py-2 rounded ${mode === "email" ? "bg-white text-black" : ""}`}
-  >
-    Formal
-  </button>
+  
 </div>
 
-<div className="flex gap-3 justify-center">
-  <button
-    onClick={() => setLevel("normal")}
-    className={`border px-3 py-1 rounded ${level === "normal" ? "bg-white text-black" : ""}`}
-  >
-    Polite
-  </button>
-
-  <button
-    onClick={() => setLevel("high")}
-    className={`border px-3 py-1 rounded ${level === "high" ? "bg-white text-black" : ""}`}
-  >
-    Very Polite
-  </button>
-</div>
 
 
       
-
-        <button
-          onClick={handleGenerate}
-          className="w-full bg-black text-white py-2 rounded"
-        >
-          Improve my message 
-        </button>
 
         {result && (
   <div className="space-y-2">
