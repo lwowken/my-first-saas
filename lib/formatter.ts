@@ -7,36 +7,43 @@ export function formatText(input: string, mode: string, level: string) {
 
 export function generateLecturerEmail(
   type: "extension" | "absence",
-  tone: "normal" | "polite",
+  tone: "polite",
   course: string,
   date: string
 ) {
-  let body = "";
-
   if (type === "extension") {
-    body =
-      `I hope you are well.\n\n` +
-      `I am writing to ask if it would be possible to request a short extension for the assignment in ${course}, originally due on ${date}. ` +
-      `Unfortunately, I was unable to complete it on time due to unforeseen circumstances.\n\n`;
+    return `Dear Dr (lecturer name),
+
+I hope you are well.
+
+I am writing to request a short extension for my assignment because:
+
+👉 (write your reason here in one sentence)
+
+Sorry for the inconvenience. I hope you can understand.
+
+Thank you for your time.
+
+Best regards,  
+(your full name)  
+(student ID)`;
   }
 
   if (type === "absence") {
-    body =
-      `I hope you are well.\n\n` +
-      `I am writing to inform you that I was unable to attend class for ${course} on ${date} due to unforeseen circumstances.\n\n`;
+    return `Dear Dr (lecturer name),
+
+I hope you are well.
+
+I was unable to attend class because:
+
+👉 (write your reason here in one sentence)
+
+Sorry for the inconvenience. Thank you for your understanding.
+
+Best regards,  
+(your full name)  
+(student ID)`;
   }
 
-  if (tone === "polite") {
-    body +=
-      `I sincerely apologize for any inconvenience caused and would really appreciate your understanding.\n\n`;
-  }
-
-  return (
-    `Dear Dr [Last Name],\n\n` +
-    body +
-    `Thank you very much for your time.\n\n` +
-    `Best regards,\n` +
-    `[Your Full Name]\n` +
-    `[Student ID]`
-  );
+  return "";
 }
