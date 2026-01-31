@@ -12,7 +12,7 @@ export default function Home() {
       <div className="bg-white shadow-xl rounded-2xl p-10 w-full max-w-md text-center space-y-6">
 
         <h1 className="text-2xl font-semibold text-gray-800">
-          Need to email your lecturer?
+         Don’t know how to email your lecturer?
         </h1>
 
         <button
@@ -21,7 +21,7 @@ export default function Home() {
           }
           className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg text-lg font-medium transition"
         >
-          I need assignment extension
+          Help me ask for extension
         </button>
 
         <button
@@ -30,7 +30,7 @@ export default function Home() {
           }
           className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 rounded-lg text-lg font-medium transition"
         >
-          I will be absent from class
+         Help me explain my absence
         </button>
 
       </div>
