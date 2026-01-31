@@ -12,7 +12,7 @@ export default function Home() {
       <div className="bg-white shadow-xl rounded-2xl p-10 w-full max-w-md text-center space-y-6">
 
         <h1 className="text-2xl font-semibold text-gray-800">
-         Don’t know how to email your lecturer?
+         Stuck because you don’t know how to email your lecturer?
         </h1>
 
         <button
