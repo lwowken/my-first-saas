@@ -1,10 +1,5 @@
-import ArcheryScoringApp from "./ArcheryScoringApp";
-import { MatchStoreProvider } from "./MatchStore";
+import ArcheryDashboard from "./ArcheryDashboard";
 
 export default function Home() {
-  return (
-    <MatchStoreProvider>
-      <ArcheryScoringApp />
-    </MatchStoreProvider>
-  );
+  return <ArcheryDashboard />;
 }

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Archery Scoring",
-  description: "Modern archery scoring dashboard",
+  title: "Archery Tracking System",
+  description: "Ultra-dark archery tracking dashboard with live leaderboard and exports",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-[#0b1120] text-slate-100 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-[#050505] text-zinc-100 antialiased`}
       >
         {children}
       </body>
